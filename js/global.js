@@ -268,3 +268,18 @@ const observerIntersectionAnimation = () => {
 observerIntersectionAnimation();
 
 
+
+
+const header = document.querySelector(".header");
+const burger = document.querySelector(".burger");
+
+if (header && burger) {
+  burger.addEventListener("click", () => {
+    const ouvert = header.classList.toggle("show-nav");
+    burger.setAttribute("aria-expanded", ouvert);
+    burger.setAttribute(
+      "aria-label",
+      ouvert ? "Fermer le menu" : "Ouvrir le menu"
+    );
+  });
+}
