@@ -1586,6 +1586,14 @@ section {
   background: #5b6c78;
 }
 
+@media screen and (max-width: 749px) {
+  .portfolio .grid__item {
+    width: 100%;
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+}
+
 .modal {
   visibility: hidden;
   opacity: 0;
@@ -1892,49 +1900,6 @@ footer .socials a:hover {
 
 
 
-
-
-
-
-@media (max-width: 600px) {
-  header.header {
-    height: auto !important;
-    min-height: 0 !important;
-    padding: 12px 0;
-  }
-
-  header.header > .container {
-    display: flex !important;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  header.header nav.navbar {
-    display: block !important;
-    position: static !important;
-    width: 100%;
-    height: auto !important;
-  }
-
-  header.header nav.navbar ul.menu {
-    display: flex !important;
-    flex-direction: column;
-    gap: 12px;
-    margin: 12px 0 0;
-    padding: 0;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-
-  header.header nav.navbar ul.menu a {
-    display: block !important;
-    color: #003b70 !important;
-  }
-
-  header.header .right {
-    margin-left: auto;
-  }
-}
 
 
 
