@@ -222,33 +222,58 @@ section {
   transform: translateY(8px);
 }
 
-@media screen and (max-width: 749px) {
-  .header nav.navbar {
+@media (max-width: 749px) {
+  .header .container {
+    flex-wrap: wrap;
+  }
+
+  .header .logo {
+    margin-right: auto;
+  }
+
+  .header .burger {
     display: block;
-    position: static;
+    z-index: 3;
+  }
+
+  .header nav.navbar {
+    display: flex;
+    position: fixed;
+    top: 65px;
+    left: 0;
     width: 100%;
-    height: auto;
-    overflow: visible;
+    height: calc(100vh - 65px);
+    justify-content: center;
+    background: #f5f5f5;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 2;
+  }
+
+  .header.show-nav nav.navbar {
+    transform: translateX(0);
     opacity: 1;
-    background: transparent;
   }
 
   .header nav.navbar .menu {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0;
-    padding: 0;
   }
 
-  .header nav.navbar .menu li {
-    display: block;
-    margin: 0;
+  .header .right {
+    display: none;
+  }
+}
+
+@media (min-width: 750px) {
+  .header .burger {
+    display: none;
   }
 
-  .header nav.navbar .menu a {
-    display: block;
-    padding: 1rem;
+  .header nav.navbar {
+    display: flex;
   }
 }
 @media screen and (min-width:750px) {
