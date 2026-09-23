@@ -1898,28 +1898,28 @@ footer .socials a:hover {
 
 
 
-* {
+*header {
   box-sizing: border-box;
 }
 
-.portfolio,
-.portfolio .container {
+.header,
+.header .container {
   max-width: 100%;
   min-width: 0;
 }
 
-.portfolio .grid {
+.header .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
   gap: 16px;
 }
 
 @media (max-width: 600px) {
-  .portfolio {
+  .header {
     padding: 20px 12px;
   }
 
-  .portfolio .card__image {
+  .header .card__image {
     width: 100%;
     height: auto;
   }
