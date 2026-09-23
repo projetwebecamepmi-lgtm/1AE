@@ -231,50 +231,111 @@
       </div>
     </section>
 
-   <section class="py-5">
-  <div class="container">
-    <h2 class="text-center titre-section mb-3">ECAM-EPMI — Cergy, France</h2>
-    
-    <div class="ratio ratio-16x9">
+ <section class="campus-section">
+  <div class="campus-container">
+    <h2>Choisissez un campus</h2>
+    <p>Sélectionnez le campus ECAM-EPMI que vous souhaitez localiser.</p>
+
+    <label for="campus-select">Campus :</label>
+    <select id="campus-select">
+      <option value="">-- Choisir un campus --</option>
+      <option value="13 Boulevard de l'Hautil, 95092 Cergy-Pontoise, France">
+        Cergy
+      </option>
+      <option value="61 avenue du Président Wilson, 94230 Cachan, France">
+        Cachan
+      </option>
+      <option value="18 rue de l'ancien Palais de Justice, 06130 Grasse, France">
+        Grasse
+      </option>
+    </select>
+
+    <div id="map-container" class="map-container" hidden>
       <iframe
-        src="https://maps.google.com/maps?q=ECAM-EPMI%20Cergy%20France&z=15&output=embed"
-        title="Carte Google Maps de l’ECAM-EPMI à Cergy"
+        id="campus-map"
+        title="Carte du campus ECAM-EPMI"
+        width="100%"
+        height="450"
         style="border: 0"
-        allowfullscreen
         loading="lazy"
+        allowfullscreen
         referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </div>
 
-    <p class="text-center mt-3">
-      <a href="https://www.google.com/maps/search/?api=1&query=ECAM-EPMI+Cergy+France"
-         target="_blank" rel="noopener noreferrer">
-        Ouvrir dans Google Maps
+    <p id="map-link-container" hidden>
+      <a id="map-link" href="#" target="_blank" rel="noopener noreferrer">
+        Ouvrir cet emplacement dans Google Maps
       </a>
     </p>
   </div>
 </section>
+
 <style>
-  .localisation {
-    max-width: 1000px;
-    margin: 2rem auto;
-    padding: 1.5rem;
+  .campus-section {
+    padding: 48px 20px;
     font-family: Arial, sans-serif;
   }
 
-  .localisation h2 {
-    margin-bottom: 0.5rem;
+  .campus-container {
+    max-width: 1000px;
+    margin: 0 auto;
   }
 
-  .carte {
+  .campus-container h2,
+  .campus-container > p {
+    text-align: center;
+  }
+
+  #campus-select {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    margin: 10px auto 24px;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .map-container {
     overflow: hidden;
     border-radius: 12px;
   }
 
-  .carte iframe {
-    display: block;
+  #map-link-container {
+    text-align: center;
+    margin-top: 16px;
   }
 </style>
+
+<script>
+  const campusSelect = document.getElementById("campus-select");
+  const campusMap = document.getElementById("campus-map");
+  const mapContainer = document.getElementById("map-container");
+  const mapLink = document.getElementById("map-link");
+  const mapLinkContainer = document.getElementById("map-link-container");
+
+  campusSelect.addEventListener("change", function () {
+    const address = this.value;
+
+    if (!address) {
+      mapContainer.hidden = true;
+      mapLinkContainer.hidden = true;
+      campusMap.src = "";
+      return;
+    }
+
+    const encodedAddress = encodeURIComponent(address);
+
+    campusMap.src =
+      `https://maps.google.com/maps?q=${encodedAddress}&z=15&output=embed`;
+
+    mapLink.href =
+      `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+
+    mapContainer.hidden = false;
+    mapLinkContainer.hidden = false;
+  });
+</script>
     
  <section class="pb-5">
       <div class="container">
