@@ -283,3 +283,29 @@ if (header && burger) {
     );
   });
 }
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector(".header");
+  const burger = document.querySelector(".burger");
+
+  if (!header || !burger) return;
+
+  burger.addEventListener("click", () => {
+    const menuOuvert = header.classList.toggle("show-nav");
+    burger.setAttribute("aria-expanded", String(menuOuvert));
+    burger.setAttribute(
+      "aria-label",
+      menuOuvert ? "Fermer le menu" : "Ouvrir le menu"
+    );
+  });
+
+  header.querySelectorAll(".navbar a").forEach((lien) => {
+    lien.addEventListener("click", () => {
+      header.classList.remove("show-nav");
+      burger.setAttribute("aria-expanded", "false");
+      burger.setAttribute("aria-label", "Ouvrir le menu");
+    });
+  });
+});
