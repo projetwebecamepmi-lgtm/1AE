@@ -148,6 +148,10 @@ $articles = $pdo->query(
       <div class="logo">
          ECAM EPMI
       </div>
+      <button class="burger" type="button"
+        aria-label="Ouvrir le menu" aria-expanded="false">
+  <span class="bar"></span>
+</button>
       <nav class="navbar ">
         <ul class="menu list-unstyled">
           <li><a href="index.html">Accueil</a></li>
