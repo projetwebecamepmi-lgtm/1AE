@@ -1898,39 +1898,28 @@ footer .socials a:hover {
 
 
 
-*header {
-  box-sizing: border-box;
-}
-
-.header,
-.header .container {
-  max-width: 100%;
-  min-width: 0;
-}
-
-.header .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-  gap: 16px;
-}
-
 @media (max-width: 600px) {
-  .header {
-    padding: 20px 12px;
+  .header .container {
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-  .header .card__image {
+  .header .navbar,
+  .header .navbar .menu {
+    display: flex !important;
+  }
+
+  .header .navbar {
     width: 100%;
-    height: auto;
+  }
+
+  .header .navbar .menu {
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+    padding: 12px 0;
   }
 }
-
-
-
-
-
-
-
 
 
 
