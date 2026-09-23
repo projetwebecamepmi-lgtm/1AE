@@ -1897,27 +1897,31 @@ footer .socials a:hover {
 
 
 
-
 @media (max-width: 600px) {
   .header .container {
+    display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    align-items: center;
   }
 
-  .header .navbar,
-  .header .navbar .menu {
-    display: flex !important;
-  }
-
-  .header .navbar {
+  .header nav.navbar {
+    display: block !important;
     width: 100%;
+    height: auto;
   }
 
-  .header .navbar .menu {
+  .header nav.navbar ul.menu {
+    display: flex !important;
     flex-direction: column;
     gap: 12px;
+    width: 100%;
     margin: 0;
     padding: 12px 0;
+  }
+
+  .header nav.navbar ul.menu li,
+  .header nav.navbar ul.menu a {
+    display: block !important;
   }
 }
 
