@@ -2,11 +2,9 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Contact | ECAM EPMI</title>
-
- <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contactez ECAM-EPMI et trouvez le bon interlocuteur parmi nos services et campus.">
+  <meta name="theme-color" content="#102d52">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>1AE Ecam Epmi</title>
@@ -18,45 +16,322 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/global.css">
   <script src="./js/global.js" defer></script>
-
- 
-
+  <title>Contact | ECAM-EPMI</title>
   <style>
+    /* 1. Couleurs, base et éléments communs */
+    :root {
+      --navy: #102d52;
+      --blue: #1769aa;
+      --ink: #18314d;
+      --muted: #64748b;
+      --line: #e2eaf1;
+      --paper: #f5f8fb;
+      --white: #fff;
+      --orange: #ef9c42;
+      --shadow: 0 18px 50px #17395c12;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: "Poppins", sans-serif;
-      background-color: #f5f7fa;
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.6 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    a { color: inherit; }
+    button, input, select, textarea { font: inherit; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .section { padding: 72px 0 0; }
+    .section-heading { margin-bottom: 24px; }
+    .eyebrow {
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin: 7px 0;
+      color: var(--navy);
+      font-size: clamp(28px, 4vw, 38px);
+      line-height: 1.2;
+      letter-spacing: -.035em;
+    }
+    .section-intro { max-width: 650px; margin: 7px 0 0; color: var(--muted); }
+
+    /* 2. Navigation */
+    .site-header { background: var(--white); border-bottom: 1px solid var(--line); }
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--navy);
+      font-weight: 850;
+      text-decoration: none;
+    }
+    .brand-mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 13px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 13px;
+    }
+    .brand small { display: block; color: var(--muted); font-size: 10px; letter-spacing: .13em; }
+    .navigation { display: flex; align-items: center; gap: 26px; }
+    .navigation a { color: #52647a; font-size: 14px; font-weight: 650; text-decoration: none; }
+    .navigation a:hover, .navigation a[aria-current="page"] { color: var(--blue); }
+    .navigation .nav-button {
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: var(--navy);
+      color: var(--white);
     }
 
-    .banniere-contact {
-      padding: 100px 20px 60px;
-      text-align: center;
-      color: white;
-      background-color: #003b70;
+    /* 3. Bannière d’accueil */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 78px 0;
+      background: radial-gradient(ellipse at 88% 5%, #347fb34a, transparent 35%),
+                  linear-gradient(120deg, var(--navy), #174877);
+      color: var(--white);
     }
+    .hero::after {
+      position: absolute;
+      top: -220px;
+      right: 8%;
+      width: 390px;
+      height: 390px;
+      border: 1px solid #ffffff20;
+      border-radius: 50%;
+      box-shadow: 0 0 0 44px #ffffff08, 0 0 0 88px #ffffff06;
+      content: "";
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 720px; }
+    .hero .eyebrow { color: #b8e8ef; }
+    .hero h1 { margin: 18px 0; font-size: clamp(40px, 6vw, 66px); line-height: 1.04; letter-spacing: -.045em; }
+    .hero p { max-width: 590px; margin: 0; color: #d1dfec; font-size: 18px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .button {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border: 1px solid transparent;
+      border-radius: 11px;
+      cursor: pointer;
+      font-weight: 750;
+      text-decoration: none;
+      transition: transform .18s, background .18s;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button-light { background: var(--white); color: var(--navy); }
+    .button-outline { border-color: #ffffff66; background: #ffffff0d; color: var(--white); }
+    .button-primary { background: var(--blue); color: var(--white); }
+    .button-primary:hover { background: #105890; }
+    .hero-note { margin-top: 18px; color: #bdd0df; font-size: 12px; }
 
-    .titre-section {
-      color: #003b70;
+    /* 4. Accès rapides */
+    .quick-links {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: -25px;
+    }
+    .quick-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      text-decoration: none;
+    }
+    .quick-icon {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      flex: none;
+      place-items: center;
+      border-radius: 13px;
+      background: #eaf3fb;
+      color: var(--blue);
+      font-size: 20px;
+    }
+    .quick-card strong { display: block; color: var(--navy); font-size: 14px; }
+    .quick-card span:last-child { color: var(--muted); font-size: 12px; }
+
+    /* 5. Recherche et fiches contacts */
+    .directory-tools { display: flex; align-items: end; justify-content: space-between; gap: 20px; }
+    .search-field { width: min(300px, 100%); }
+    .search-field input, .form-control {
+      width: 100%;
+      min-height: 46px;
+      padding: 10px 13px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--white);
+      color: var(--ink);
+    }
+    .search-field input:focus, .form-control:focus {
+      border-color: #68a8d2;
+      outline: 3px solid #1769aa1c;
+    }
+    .filters { display: flex; flex-wrap: wrap; gap: 9px; margin: 18px 0; }
+    .filter-button {
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+      color: #596c80;
+      cursor: pointer;
+      font-size: 13px;
       font-weight: 700;
     }
-
-    .table thead {
-      background-color: #003b70;
-      color: white;
+    .filter-button[aria-pressed="true"] { border-color: var(--navy); background: var(--navy); color: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .contact-card {
+      display: flex;
+      min-height: 225px;
+      flex-direction: column;
+      padding: 21px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--white);
+      box-shadow: 0 7px 22px #18314d08;
     }
+    .card-top { display: flex; align-items: center; justify-content: space-between; }
+    .contact-icon { font-size: 21px; }
+    .category-tag { padding: 4px 9px; border-radius: 99px; background: #eff5f9; color: #58718a; font-size: 10px; font-weight: 800; }
+    .contact-card h3 { margin: 15px 0 3px; color: var(--navy); font-size: 17px; }
+    .contact-card p { margin: 0; color: var(--muted); font-size: 13px; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: auto; padding-top: 18px; }
+    .contact-links a { color: var(--blue); font-size: 12px; font-weight: 700; text-decoration: none; }
+    .contact-links a:hover { text-decoration: underline; }
+    .contact-location { margin-top: 10px !important; font-size: 11px !important; }
+    .empty-result { grid-column: 1 / -1; padding: 30px; border: 1px dashed #cbd8e3; border-radius: 14px; color: var(--muted); text-align: center; }
+    .sample-note { margin-top: 14px; color: var(--muted); font-size: 11px; }
 
-    .carte-contact {
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    /* 6. Sélecteur de campus et carte */
+    .campus-panel {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      overflow: hidden;
+      border-radius: 20px;
+      background: var(--navy);
+      box-shadow: var(--shadow);
+      color: var(--white);
     }
+    .campus-details { padding: 32px; }
+    .campus-details .eyebrow { color: #9bdae4; }
+    .campus-details h2 { color: var(--white); }
+    .campus-details p { color: #c3d4e3; font-size: 14px; }
+    .campus-details label, .form-field label { display: block; margin-bottom: 6px; font-size: 12px; font-weight: 750; }
+    .campus-details label { margin-top: 18px; color: #d5e3ed; }
+    .campus-address { min-height: 40px; margin: 12px 0; color: #d0dfeb; font-size: 12px; }
+    .map-frame, .map-frame iframe { width: 100%; min-height: 330px; border: 0; }
+    .map-frame { display: grid; place-items: center; background: linear-gradient(140deg, #dce8ee, #bfd2dc); color: #24435b; text-align: center; }
+    .map-frame p { margin: 0; color: #597286; font-size: 13px; }
+    .map-symbol { display: block; font-size: 42px; }
 
+    /* 7. Formulaire de contact */
+    .form-layout { display: grid; grid-template-columns: .72fr 1.28fr; gap: 22px; }
+    .form-intro { padding: 28px; border-radius: 16px; background: #eaf3f8; }
+    .form-intro h3 { color: var(--navy); font-size: 21px; line-height: 1.25; }
+    .form-intro p, .form-intro li { color: var(--muted); font-size: 13px; }
+    .form-intro ul { padding-left: 19px; }
+    .form-card { padding: 27px; border: 1px solid var(--line); border-radius: 16px; background: var(--white); box-shadow: var(--shadow); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-field label { color: #334b63; }
+    .form-field textarea { min-height: 125px; resize: vertical; }
+    .required { color: #b33131; }
+    .form-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 17px; }
+    .form-help, .form-note { color: var(--muted); font-size: 11px; }
+    .form-status { color: #17643e; font-size: 13px; }
+    .form-status:empty { display: none; }
+    .form-note { margin-bottom: 0; }
+
+    /* 8. Questions fréquentes et pied de page */
+    .faq-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding-bottom: 70px; }
+    .faq-card { padding: 19px; border: 1px solid var(--line); border-radius: 14px; background: var(--white); }
+    .faq-card h3 { margin: 0 0 7px; color: var(--navy); font-size: 14px; }
+    .faq-card p { margin: 0; color: var(--muted); font-size: 12px; }
+    .site-footer { padding: 25px 0; background: #0c2340; color: #cfdae5; font-size: 12px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 15px; }
+    .site-footer a { color: var(--white); text-decoration: none; }
+
+    /* 9. Adaptation mobile et accessibilité */
+    @media (max-width: 850px) {
+      .navigation { gap: 14px; }
+      .contact-grid { grid-template-columns: repeat(2, 1fr); }
+      .campus-panel { grid-template-columns: 1fr; }
+      .map-frame, .map-frame iframe { min-height: 290px; }
+      .form-layout { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .container { width: calc(100% - 30px); }
+      .header-inner { align-items: flex-start; flex-direction: column; gap: 12px; padding: 13px 0; }
+      .navigation { width: 100%; gap: 17px; overflow-x: auto; }
+      .navigation a { flex: none; font-size: 12px; }
+      .hero { padding: 55px 0; }
+      .hero p { font-size: 16px; }
+      .quick-links, .contact-grid, .faq-grid { grid-template-columns: 1fr; }
+      .quick-links { gap: 9px; margin-top: -18px; }
+      .section { padding-top: 54px; }
+      .directory-tools { align-items: stretch; flex-direction: column; }
+      .search-field { width: 100%; }
+      .contact-card { min-height: 205px; }
+      .campus-details, .form-card { padding: 22px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-field.full { grid-column: auto; }
+      .form-footer, .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
   
+    /* Composants utilisés par les fiches contact et le formulaire */
+    .dept-icon { font-size: 21px; }
+    .tag { padding: 4px 9px; border-radius: 99px; background: #eff5f9; color: #58718a; font-size: 10px; font-weight: 800; }
+    .contact-detail { display: flex; flex-wrap: wrap; gap: 9px; margin-top: auto; padding-top: 18px; }
+    .detail-link { color: var(--blue); font-size: 12px; font-weight: 700; text-decoration: none; }
+    .detail-link:hover { text-decoration: underline; }
+    .contact-empty { grid-column: 1 / -1; padding: 30px; border: 1px dashed #cbd8e3; border-radius: 14px; color: var(--muted); text-align: center; }
+    .map-placeholder { display: grid; min-height: 330px; place-items: center; }
+    .map-placeholder strong { display: block; }
+    .map-placeholder span { display: block; font-size: 42px; }
+    .aside-point { display: flex; gap: 12px; margin-top: 14px; color: var(--muted); font-size: 13px; }
+    .aside-point b { color: var(--blue); }
+    .button-outline { border-color: #ffffff66; background: #ffffff0d; color: var(--white); }
+    .button-outline:hover { background: #ffffff20; }
+    .form-status:empty { display: none; }
+    @media (max-width: 600px) { .quick-links { grid-template-columns: 1fr; } }
   </style>
 </head>
 
 <body>
 
- <header class="header">
+   <header class="header">
     <div class="container d-flex">
       <div class="logo">
          ECAM EPMI
@@ -124,265 +399,356 @@
     </div>
   </header>
 
-  <main>
-
-    <section class="banniere-contact">
-      <h1 class="display-5 fw-bold">Contactez-nous</h1>
-      <p class="lead">Retrouvez les coordonnées des départements et des enseignants.</p>
-    </section>
-
-    <section class="py-5">
-      <div class="container">
-        <h2 class="text-center titre-section mb-4">Contacts des départements</h2>
-
-        <div class="table-responsive">
-          <table class="table table-bordered table-hover text-center align-middle bg-white">
-            <thead>
-              <tr>
-                <th>Département</th>
-                <th>Responsable</th>
-                <th>Téléphone</th>
-                <th>Bâtiment / Bureau</th>
-                <th>Email</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td>Direction des études</td>
-                <td>M./Mme Nom du responsable</td>
-                <td>01 00 00 00 00</td>
-                <td>Bâtiment A — Bureau 101</td>
-                <td>etudes@ecam-epmi.fr</td>
-              </tr>
-
-              <tr>
-                <td>Département Informatique</td>
-                <td>M./Mme Nom du responsable</td>
-                <td>01 00 00 00 01</td>
-                <td>Bâtiment B — Bureau 205</td>
-                <td>informatique@ecam-epmi.fr</td>
-              </tr>
-
-              <tr>
-                <td>Département Sciences</td>
-                <td>M./Mme Nom du responsable</td>
-                <td>01 00 00 00 02</td>
-                <td>Bâtiment A — Bureau 210</td>
-                <td>sciences@ecam-epmi.fr</td>
-              </tr>
-
-              <tr>
-                <td>Service Admissions</td>
-                <td>M./Mme Nom du responsable</td>
-                <td>01 00 00 00 03</td>
-                <td>Bâtiment C — Accueil</td>
-                <td>admissions@ecam-epmi.fr</td>
-              </tr>
-            </tbody>
-          </table>
+  <main id="accueil">
+    <section class="hero">
+      <div class="container hero-content">
+        <span class="eyebrow">Nous sommes à votre écoute</span>
+        <h1 style="color: blanchedalmond;">Parlons de votre<br>projet d’avenir.</h1>
+        <p>Une question sur les formations, les admissions ou la vie à l’école&nbsp;? Notre équipe vous oriente vers le bon interlocuteur.</p>
+        <div class="hero-actions">
+          <a class="button button-light" href="#contacts">Trouver un contact <span aria-hidden="true">↓</span></a>
+          <a class="button button-outline" href="#campus">Découvrir nos campus <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
-
-    <section class="pb-5">
-      <div class="container">
-        <h2 class="text-center titre-section mb-4">Contacts des professeurs</h2>
-
-        <div class="table-responsive">
-          <table class="table table-bordered table-hover text-center align-middle bg-white">
-            <thead>
-              <tr>
-                <th>Nom et prénom</th>
-                <th>Matière</th>
-                <th>Téléphone</th>
-                <th>Bâtiment / Bureau</th>
-                <th>Email</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td>Professeur Nom Prénom</td>
-                <td>Mathématiques</td>
-                <td>01 00 00 00 10</td>
-                <td>Bâtiment A — Bureau 105</td>
-                <td>nom.prenom@ecam-epmi.fr</td>
-              </tr>
-
-              <tr>
-                <td>Professeur Nom Prénom</td>
-                <td>Physique</td>
-                <td>01 00 00 00 11</td>
-                <td>Bâtiment A — Bureau 108</td>
-                <td>nom.prenom@ecam-epmi.fr</td>
-              </tr>
-
-              <tr>
-                <td>Professeur Nom Prénom</td>
-                <td>Informatique</td>
-                <td>01 00 00 00 12</td>
-                <td>Bâtiment B — Bureau 201</td>
-                <td>nom.prenom@ecam-epmi.fr</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
- <section class="campus-section">
-  <div class="campus-container">
-    <h2>Choisissez un campus</h2>
-    <p>Sélectionnez le campus ECAM-EPMI que vous souhaitez localiser.</p>
-
-    
-    <select id="campus-select">
-      <option value="">-- Choisir un campus --</option>
-      <option value="13 Boulevard de l'Hautil, 95092 Cergy-Pontoise, France">
-        Cergy
-      </option>
-      <option value="61 avenue du Président Wilson, 94230 Cachan, France">
-        Cachan
-      </option>
-      <option value="18 rue de l'ancien Palais de Justice, 06130 Grasse, France">
-        Grasse
-      </option>
-    </select>
-
-    <div id="map-container" class="map-container" hidden>
-      <iframe
-        id="campus-map"
-        title="Carte du campus ECAM-EPMI"
-        width="100%"
-        height="450"
-        style="border: 0"
-        loading="lazy"
-        allowfullscreen
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+    <div class="container quick-links" aria-label="Contacts rapides">
+      <a class="quick-card" href="mailto:admissions@ecam-epmi.fr">
+        <span class="quick-icon" aria-hidden="true">✳</span>
+        <span><strong>Admissions</strong><span>Parlons de votre candidature</span></span></a>
+      <a class="quick-card" href="mailto:etudes@ecam-epmi.fr">
+        <span class="quick-icon" aria-hidden="true">▤</span>
+        <span><strong>Scolarité</strong><span>Une question sur vos études</span></span></a>
+      <a class="quick-card" href="#campus">
+        <span class="quick-icon" aria-hidden="true">⌖</span>
+        <span><strong>Nous rencontrer</strong><span>Retrouvez le campus le plus proche</span></span></a>
     </div>
-
-    <p id="map-link-container" hidden>
-      <a id="map-link" href="#" target="_blank" rel="noopener noreferrer">
-        Ouvrir cet emplacement dans Google Maps
-      </a>
-    </p>
-  </div>
-</section>
-
-<style>
-  .campus-section {
-    padding: 48px 20px;
-    font-family: Arial, sans-serif;
-  }
-
-  .campus-container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .campus-container h2,
-  .campus-container > p {
-    text-align: center;
-  }
-
-  #campus-select {
-    display: block;
-    width: 100%;
-    max-width: 450px;
-    margin: 10px auto 24px;
-    padding: 12px;
-    font-size: 16px;
-  }
-
-  .map-container {
-    overflow: hidden;
-    border-radius: 12px;
-  }
-
-  #map-link-container {
-    text-align: center;
-    margin-top: 16px;
-  }
-</style>
-
-<script>
-  const campusSelect = document.getElementById("campus-select");
-  const campusMap = document.getElementById("campus-map");
-  const mapContainer = document.getElementById("map-container");
-  const mapLink = document.getElementById("map-link");
-  const mapLinkContainer = document.getElementById("map-link-container");
-
-  campusSelect.addEventListener("change", function () {
-    const address = this.value;
-
-    if (!address) {
-      mapContainer.hidden = true;
-      mapLinkContainer.hidden = true;
-      campusMap.src = "";
-      return;
-    }
-
-    const encodedAddress = encodeURIComponent(address);
-
-    campusMap.src =
-      `https://maps.google.com/maps?q=${encodedAddress}&z=15&output=embed`;
-
-    mapLink.href =
-      `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
-
-    mapContainer.hidden = false;
-    mapLinkContainer.hidden = false;
-  });
-</script>
-    
- <section class="pb-5">
-      <div class="container">
-        <div class="card carte-contact p-4">
-          <h2 class="titre-section">Envoyer un message</h2>
-
-          <form>
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label for="nom" class="form-label">Nom</label>
-                <input type="text" id="nom" class="form-control" placeholder="Votre nom">
-              </div>
-
-              <div class="col-md-6">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" class="form-control" placeholder="Votre email">
-              </div>
-
-              <div class="col-12">
-                <label for="sujet" class="form-label">Sujet</label>
-                <input type="text" id="sujet" class="form-control" placeholder="Sujet de votre message">
-              </div>
-
-              <div class="col-12">
-                <label for="message" class="form-label">Message</label>
-                <textarea id="message" class="form-control" rows="5"
-                          placeholder="Écrivez votre message ici"></textarea>
-              </div>
-
-              <div class="col-12">
-                <button type="submit" class="btn btn-primary">
-                  Envoyer le message
-                </button>
-              </div>
+    <section class="section container" id="contacts">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Un interlocuteur, simplement</span>
+          <h2>Qui souhaitez-vous joindre&nbsp;?</h2>
+          <p class="section-intro">Parcourez les services ou recherchez un mot-clé pour trouver le bon contact.</p>
+        </div>
+        <label class="search-field">
+          <span class="visually-hidden" style="position:absolute;clip:rect(0,0,0,0)">Rechercher un contact</span>
+          <input id="search" type="search" placeholder="Rechercher un service…" autocomplete="off">
+        </label>
+      </div>
+      <div class="filters" role="group" aria-label="Filtrer les contacts">
+        <button class="filter-button" type="button" aria-pressed="true" data-filter="Tous">Tous les contacts</button>
+        <button class="filter-button" type="button" aria-pressed="false" data-filter="Études">Études</button>
+        <button class="filter-button" type="button" aria-pressed="false" data-filter="Admissions">Admissions</button>
+        <button class="filter-button" type="button" aria-pressed="false" data-filter="Vie étudiante">Vie étudiante</button>
+      </div>
+      <div class="contact-grid" id="contact-grid" aria-live="polite"></div>
+      
+    </section>
+    <section class="section container" id="campus">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Partout près de vous</span>
+          <h2>Nos campus</h2>
+          <p class="section-intro">Sélectionnez un campus pour afficher son adresse et préparer votre itinéraire.</p>
+        </div>
+      </div>
+      <div class="campus-panel">
+        <div class="campus-details">
+          <span class="eyebrow">Venez nous rencontrer</span>
+          <h2>Une école, plusieurs campus.</h2>
+          <p>Choisissez votre destination. La carte et l’adresse se mettront à jour automatiquement.</p>
+          <div class="campus-select-wrap">
+            <label for="campus-select">Campus</label>
+            <select class="form-control" id="campus-select">
+              <option value="">Choisir un campus</option>
+              <option value="cergy">Cergy-Pontoise</option>
+              <option value="cachan">Cachan</option>
+              <option value="grasse">Grasse</option>
+            </select>
+          </div>
+          <div id="campus-address" class="campus-address" aria-live="polite">Sélectionnez un campus pour afficher les détails.</div>
+          <a id="map-link" class="button button-outline" href="#campus" target="_blank" rel="noopener noreferrer" hidden>Ouvrir dans Google Maps ↗</a>
+        </div>
+        <div class="map-frame" id="map-frame">
+          <div class="map-placeholder">
+            <div>
+              <span aria-hidden="true">⌖</span>
+              <strong>Explorez nos campus</strong>
+              <p>La carte s’affichera ici après votre sélection.</p>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </section>
-   
+    <section class="section container" id="message">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">À votre écoute</span>
+            <h2>Envoyez-nous un message.</h2>
+            <p class="section-intro">Précisez votre demande et nous vous guiderons vers le service adapté.</p>
+          </div>
+        </div>
+      <div class="form-layout"><aside class="form-intro">
+        <span class="eyebrow">On vous répond</span>
+        <h3>Chaque question mérite une réponse claire.</h3>
+        <p>Admissions, scolarité, partenariats ou vie étudiante&nbsp;: indiquez le sujet de votre demande pour être orienté.</p>
+        <div class="aside-point"><b>01</b>
+          <span>Choisissez le service qui vous concerne.</span>
+        </div>
+        <div class="aside-point"><b>02</b>
+          <span>Laissez vos coordonnées et votre message.</span>
+        </div>
+        <div class="aside-point"><b>03</b>
+          <span>Votre logiciel de messagerie prépare l’envoi.</span>
+        </div>
+      </aside>
+        <form class="form-card" id="contact-form">
+          <div class="form-grid">
+          <div class="form-field">
+            <label for="name">Nom <span class="required">*</span></label>
+            <input class="form-control" id="name" name="name" autocomplete="name" required placeholder="Votre nom">
+          </div>
+          <div class="form-field">
+            <label for="email">Adresse e-mail <span class="required">*</span></label>
+            <input class="form-control" id="email" name="email" type="email" autocomplete="email" required placeholder="vous@exemple.fr">
+          </div>
+          <div class="form-field"><label for="profile">Vous êtes…</label>
+            <select class="form-control" id="profile" name="profile">
+              <option>Futur étudiant / future étudiante</option>
+              <option>Étudiant / étudiante</option><option>Parent</option>
+              <option>Entreprise</option><option>Ancien / ancienne élève</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="topic">Votre demande concerne… <span class="required">*</span></label>
+            <select class="form-control" id="topic" name="topic" required>
+              <option value="">Choisir un sujet</option>
+              <option>Admissions et candidatures</option>
+              <option>Formations et scolarité</option>
+              <option>Vie étudiante</option>
+              <option>Relations entreprises</option>
+              <option>Autre demande</option>
+            </select>
+          </div>
+          <div class="form-field full">
+            <label for="message-text">Votre message <span class="required">*</span></label>
+            <textarea class="form-control" id="message-text" name="message" required minlength="10" placeholder="Décrivez votre demande en quelques phrases…"></textarea>
+          </div>
+        </div>
+        <div class="form-footer">
+          <span class="form-help">Les champs marqués <span class="required">*</span> sont obligatoires.</span>
+          <button class="button button-primary" type="submit">Préparer mon e-mail&nbsp; ↗</button>
+        </div>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        <p class="form-note">Ce formulaire ouvre votre application de messagerie. Il ne transmet pas les informations à un serveur.</p>
+      </form>
+      </div>
+    </section>
 
   </main>
-
- <footer class="py-4 text-center">
+   <footer class="py-4 text-center">
     <p class="mb-0">© 2026 ECAM EPMI — Formation 1AE</p>
   </footer>
+  <script>
+    // Coordonnées de démonstration : remplacez-les par les informations officielles.
+    const contacts = [
+      {
+        name: "Service des admissions",
+        category: "Admissions",
+        icon: "✳",
+        description: "Candidature, concours et journées portes ouvertes",
+        email: "admissions@ecam-epmi.fr",
+        phone: "01 00 00 00 03",
+        location: "Campus Cergy"
+      },
+      {
+        name: "Direction des études",
+        category: "Études",
+        icon: "▤",
+        description: "Scolarité, parcours et accompagnement académique",
+        email: "etudes@ecam-epmi.fr",
+        phone: "01 00 00 00 00",
+        location: "Bâtiment A · Bureau 101"
+      },
+      {
+        name: "Département informatique",
+        category: "Études",
+        icon: "⌘",
+        description: "Enseignements et projets informatiques",
+        email: "informatique@ecam-epmi.fr",
+        phone: "01 00 00 00 01",
+        location: "Bâtiment B · Bureau 205"
+      },
+      {
+        name: "Département sciences",
+        category: "Études",
+        icon: "∑",
+        description: "Mathématiques, physique et sciences appliquées",
+        email: "sciences@ecam-epmi.fr",
+        phone: "01 00 00 00 02",
+        location: "Bâtiment A · Bureau 210"
+      },
+      {
+        name: "Vie étudiante",
+        category: "Vie étudiante",
+        icon: "✦",
+        description: "Associations, activités et vie sur le campus",
+        email: "vie.etudiante@ecam-epmi.fr",
+        phone: "01 00 00 00 04",
+        location: "Accueil · Campus Cergy"
+      },
+      {
+        name: "Relations entreprises",
+        category: "Admissions",
+        icon: "↗",
+        description: "Partenariats, alternance et relations entreprises",
+        email: "entreprises@ecam-epmi.fr",
+        phone: "01 00 00 00 05",
+        location: "Bâtiment C · Accueil"
+      }
+    ];
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    const contactGrid = document.getElementById("contact-grid");
+    const searchInput = document.getElementById("search");
+    let activeFilter = "Tous";
+
+    // Affiche les contacts correspondant au filtre et au texte recherché.
+    function renderContacts() {
+      const searchTerm = searchInput.value.trim().toLocaleLowerCase("fr");
+      const filteredContacts = contacts.filter((contact) => {
+        const matchesCategory =
+          activeFilter === "Tous" || contact.category === activeFilter;
+        const searchableText = Object.values(contact)
+          .join(" ")
+          .toLocaleLowerCase("fr");
+
+        return matchesCategory && searchableText.includes(searchTerm);
+      });
+
+      if (filteredContacts.length === 0) {
+        contactGrid.innerHTML =
+          '<p class="contact-empty">Aucun contact ne correspond à votre recherche.</p>';
+        return;
+      }
+
+      contactGrid.innerHTML = filteredContacts.map((contact) => `
+        <article class="contact-card">
+          <div class="card-top">
+            <span class="dept-icon" aria-hidden="true">${contact.icon}</span>
+            <span class="tag">${contact.category}</span>
+          </div>
+          <h3>${contact.name}</h3>
+          <p>${contact.description}</p>
+          <div class="contact-detail">
+            <a class="detail-link" href="mailto:${contact.email}">✉ ${contact.email}</a>
+            <a class="detail-link" href="tel:${contact.phone.replaceAll(" ", "")}">☎ ${contact.phone}</a>
+          </div>
+          <p class="contact-location">⌖ ${contact.location}</p>
+        </article>
+      `).join("");
+    }
+
+    // Les boutons activent une catégorie et mettent à jour leur état accessible.
+    document.querySelectorAll(".filter-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        activeFilter = button.dataset.filter;
+
+        document.querySelectorAll(".filter-button").forEach((filterButton) => {
+          filterButton.setAttribute(
+            "aria-pressed",
+            String(filterButton === button)
+          );
+        });
+
+        renderContacts();
+      });
+    });
+
+    searchInput.addEventListener("input", renderContacts);
+    renderContacts();
+
+    // Coordonnées des campus utilisées pour l’adresse et la recherche sur la carte.
+    const campuses = {
+      cergy: {
+        name: "Cergy-Pontoise",
+        address: "13 boulevard de l’Hautil, 95092 Cergy-Pontoise, France",
+        query: "ECAM-EPMI Cergy-Pontoise"
+      },
+      cachan: {
+        name: "Cachan",
+        address: "61 avenue du Président Wilson, 94230 Cachan, France",
+        query: "ECAM-EPMI Cachan"
+      },
+      grasse: {
+        name: "Grasse",
+        address: "18 rue de l’Ancien Palais de Justice, 06130 Grasse, France",
+        query: "ECAM-EPMI Grasse"
+      }
+    };
+
+    const campusSelect = document.getElementById("campus-select");
+    const campusAddress = document.getElementById("campus-address");
+    const mapFrame = document.getElementById("map-frame");
+    const mapLink = document.getElementById("map-link");
+
+    campusSelect.addEventListener("change", () => {
+      const campus = campuses[campusSelect.value];
+
+      if (!campus) {
+        campusAddress.textContent =
+          "Sélectionnez un campus pour afficher les détails.";
+        mapFrame.innerHTML = `
+          <div class="map-placeholder">
+            <div>
+              <span aria-hidden="true">⌖</span>
+              <strong>Explorez nos campus</strong>
+              <p>La carte s’affichera ici après votre sélection.</p>
+            </div>
+          </div>`;
+        mapLink.hidden = true;
+        return;
+      }
+
+      const query = encodeURIComponent(campus.query);
+      campusAddress.textContent = campus.address;
+      mapFrame.innerHTML = `
+        <iframe
+          title="Carte du campus ${campus.name}"
+          src="https://maps.google.com/maps?q=${query}&z=15&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>`;
+      mapLink.href =
+        `https://www.google.com/maps/search/?api=1&query=${query}`;
+      mapLink.hidden = false;
+    });
+
+    // Prépare un e-mail dans l’application de messagerie de l’utilisateur.
+    document.getElementById("contact-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const form = event.currentTarget;
+
+      if (!form.reportValidity()) return;
+
+      const formData = new FormData(form);
+      const subject = encodeURIComponent(
+        `[Contact site] ${formData.get("topic")}`
+      );
+      const body = encodeURIComponent(
+        `Nom : ${formData.get("name")}\n` +
+        `E-mail : ${formData.get("email")}\n` +
+        `Profil : ${formData.get("profile")}\n` +
+        `Sujet : ${formData.get("topic")}\n\n` +
+        `${formData.get("message")}`
+      );
+
+      const formStatus = document.getElementById("form-status");
+      formStatus.textContent =
+        "Votre application de messagerie va s’ouvrir avec le message prérempli.";
+      window.location.href =
+        `mailto:contact@ecam-epmi.fr?subject=${subject}&body=${body}`;
+    });
+  </script>
 </body>
 </html>
